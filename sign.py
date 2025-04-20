@@ -6,7 +6,7 @@ import datetime as dt
 import plotly.express as px
 import plotly.graph_objects as go
 import json
-from google import genai
+import google.generativeai as genai
 from transformers import pipeline
 import re 
 
@@ -72,7 +72,8 @@ if not st.session_state.authenticated:
 
 # Set up Gemini client
 # Set up Gemini client with hardcoded public API key
-client = genai.Client(api_key="AIzaSyAl4rEdDYGSo0DL6Htl2sHmwP3tazBghmc")
+
+genai.configure(api_key="AIzaSyAl4rEdDYGSo0DL6Htl2sHmwP3tazBghmc")
 
 
 # Set up emotion detection pipeline
