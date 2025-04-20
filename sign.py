@@ -1,7 +1,6 @@
 import streamlit as st
 from auth import create_users_table, add_user, authenticate_user
 import os
-from dotenv import load_dotenv
 import pandas as pd
 import datetime as dt
 import plotly.express as px
@@ -70,10 +69,11 @@ if not st.session_state.authenticated:
 # ------------------- MAIN APP -------------------
 
 # Load environment variables
-load_dotenv()
 
 # Set up Gemini client
-client = genai.Client(api_key=os.getenv("GOOGLE_GENAI_API_KEY"))
+# Set up Gemini client with hardcoded public API key
+client = genai.Client(api_key="AIzaSyAl4rEdDYGSo0DL6Htl2sHmwP3tazBghmc")
+
 
 # Set up emotion detection pipeline
 emotion_classifier = pipeline("text-classification", model="bhadresh-savani/distilbert-base-uncased-emotion", top_k=1)
